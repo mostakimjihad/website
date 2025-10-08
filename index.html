@@ -5,386 +5,866 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Home | Mostakim Jihad</title>
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sf-pro': ['SF Pro Display', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'apple-gray': {
+                            50: '#f5f5f7',
+                            100: '#e8e8ed',
+                            200: '#d2d2d7',
+                            300: '#86868b',
+                            400: '#6e6e73',
+                            500: '#424245',
+                            600: '#1d1d1f',
+                        },
+                        'apple-blue': '#0071e3',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            font-family: 'SF Pro Display', system-ui, sans-serif;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f5f7 0%, #ffffff 100%);
+        }
+        .compact-text {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+        .compact-heading {
+            font-size: 1.5rem;
+            line-height: 1.75rem;
+        }
+        .compact-subheading {
+            font-size: 1.125rem;
+            line-height: 1.5rem;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .skill-tag {
+            @apply bg-apple-gray-100 text-apple-gray-700 px-2.5 py-1 rounded-full text-xs font-medium;
+        }
+        
+        /* New styles for fixed hero layout */
+        .fixed-hero {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 380px;
+            height: 100vh;
+            overflow-y: hidden;
+            z-index: 40;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+        }
+        .scrollable-content {
+            margin-left: 380px;
+            width: calc(100% - 380px);
+        }
+        
+        /* Compact styles for hero section */
+        .compact-section {
+            margin-bottom: 1.5rem;
+        }
+        .compact-section-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e8e8ed;
+        }
+        .compact-contact-item {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        .compact-contact-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #e8e8ed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+        .compact-contact-text {
+            flex: 1;
+        }
+        .compact-contact-label {
+            font-size: 0.75rem;
+            color: #6e6e73;
+            margin-bottom: 0.125rem;
+        }
+        .compact-contact-value {
+            font-size: 0.8rem;
+            color: #1d1d1f;
+            font-weight: 500;
+        }
+        .compact-reference {
+            background-color: white;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
+            border: 1px solid #e8e8ed;
+            margin-bottom: 0.75rem;
+        }
+        .compact-reference-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 0.25rem;
+        }
+        .compact-reference-title {
+            font-size: 0.7rem;
+            color: #6e6e73;
+            margin-bottom: 0.25rem;
+        }
+        .compact-reference-contact {
+            font-size: 0.7rem;
+            color: #0071e3;
+        }
+        
+        @media (max-width: 1024px) {
+            .fixed-hero {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .scrollable-content {
+                margin-left: 0;
+                width: 100%;
+            }
+        }
+    </style>
+    <title>Mostakim Jihad | Portfolio</title>
 </head>
-<body>
-    <!-- Navbar -->
-    <header>
-        <nav class="bg-white border-gray-200 dark:bg-gray-900">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mostakim Jihad</span>
+<body class="bg-apple-gray-50 text-apple-gray-600 font-sf-pro">
+    <!-- Fixed Hero Section -->
+    <section class="fixed-hero hero-gradient">
+        <div class="h-full flex flex-col p-6 overflow-y-auto">
+            <!-- Profile Section -->
+            <div class="text-center mb-6">
+                <div class="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-br from-apple-gray-100 to-apple-gray-200 flex items-center justify-center mx-auto mb-4">
+                    <img src="asset/profile.jpg" alt="Mostakim Jihad" class="w-full h-full object-cover">
+                </div>
+                <h1 class="text-2xl font-semibold text-apple-gray-900 mb-1">Mostakim Jihad</h1>
+                <p class="text-apple-gray-500 text-sm mb-3">Software Engineer & Researcher</p>
+                
+                <div class="flex flex-wrap gap-1.5 justify-center mb-4">
+                    <span class="skill-tag text-xs">Digital Twin</span>
+                    <span class="skill-tag text-xs">Edge Computing</span>
+                    <span class="skill-tag text-xs">AI/ML</span>
+                    <span class="skill-tag text-xs">Odoo ERP</span>
+                </div>
+                
+                <a href="resume.pdf" download="resume.pdf" class="inline-block bg-apple-blue text-white px-5 py-2 rounded-full text-xs font-medium hover:bg-blue-600 transition-colors mb-4">
+                    Download Resume
                 </a>
-                <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-                    </svg>
-                </button>
-                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="#experience" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Experience</a>
-                        </li>
-                        <li>
-                            <a href="#publications" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Publications</a>
-                        </li>
-                        <li>
-                            <a href="#recent-activities" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Recent Activities</a>
-                        </li>
-                        <li>
-                            <a href="#projects" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-                        </li>
-                    </ul>
+                
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-4 mb-6">
+                    <a href="mailto:mostakimjihad652001@gmail.com" class="text-apple-gray-500 hover:text-apple-blue transition-colors">
+                        <i class="fas fa-envelope text-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mostakim-jihad-9b844a202/" class="text-apple-gray-500 hover:text-apple-blue transition-colors">
+                        <i class="fab fa-linkedin-in text-lg"></i>
+                    </a>
+                    <a href="https://github.com/mostakimjihad" class="text-apple-gray-500 hover:text-apple-blue transition-colors">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=mostakimjihad" class="text-apple-gray-500 hover:text-apple-blue transition-colors">
+                        <i class="fas fa-graduation-cap text-lg"></i>
+                    </a>
                 </div>
             </div>
-        </nav>
-    </header>
-    <!-- Hero & Education Section -->
-    <section id="education" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div class="text-center lg:text-left">
-                <img src="asset/profile.jpg" alt="Mostakim Jihad" class="w-48 h-48 object-cover rounded-full mb-8 lg:mt-0 mx-auto lg:mx-0">
-                <h1 class="text-4xl font-bold text-gray-900">Thanks for Visiting!</h1>
-                <p class="mt-4 text-lg text-gray-600">Hello, I'm Mostakim Jihad, a dedicated Computer Science Engineering student and undergraduate researcher at Green University of Bangladesh. I am constantly expanding my knowledge in areas such as <b>Digital Twin</b>, <b>Vehicular Edge Computing</b>, Distributed Learning, Langchain, <b>LLM</b>, and Web automation.</p>
-                <div class="mt-8 flex justify-center lg:justify-start space-x-4">
-                    <a href="https://facebook.com" class="text-gray-600 hover:text-blue-700"><i class="fab fa-facebook-f"></i></a>
-                    <a href="mailto:mostakimjihad652001@gmail.com" class="text-gray-600 hover:text-blue-700"><i class="fas fa-envelope"></i></a>
-                    <a href="https://wa.me/8801870460323" class="text-gray-600 hover:text-blue-700"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://www.linkedin.com/in/mostakim-jihad-9b844a202/" class="text-gray-600 hover:text-blue-700"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://codeforces.com/profile/mostakimjihad" class="text-gray-600 hover:text-blue-700"><i class="fas fa-code"></i></a>
-                    <a href="https://scholar.google.com/citations?user=mostakimjihad" class="text-gray-600 hover:text-blue-700"><i class="fas fa-graduation-cap"></i></a>
-                    <a href="https://github.com/mostakimjihad" class="text-gray-600 hover:text-blue-700"><i class="fab fa-github"></i></a>
+            
+            <!-- Contact Information -->
+            <div class="compact-section">
+                <h2 class="compact-section-title">Contact Information</h2>
+                
+                <div class="space-y-3">
+                    <div class="compact-contact-item">
+                        <div class="compact-contact-icon">
+                            <i class="fas fa-envelope text-apple-gray-500 text-xs"></i>
+                        </div>
+                        <div class="compact-contact-text">
+                            <p class="compact-contact-label">Email</p>
+                            <a href="mailto:mostakimjihad652001@gmail.com" class="compact-contact-value hover:text-apple-blue transition-colors">jihad.academia@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="compact-contact-item">
+                        <div class="compact-contact-icon">
+                            <i class="fas fa-phone text-apple-gray-500 text-xs"></i>
+                        </div>
+                        <div class="compact-contact-text">
+                            <p class="compact-contact-label">Phone</p>
+                            <p class="compact-contact-value">+880 1870460323</p>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="compact-contact-item">
+                        <div class="compact-contact-icon">
+                            <i class="fab fa-linkedin-in text-apple-gray-500 text-xs"></i>
+                        </div>
+                        <div class="compact-contact-text">
+                            <p class="compact-contact-label">LinkedIn</p>
+                            <a href="https://www.linkedin.com/in/mostakim-jihad-9b844a202/" class="compact-contact-value hover:text-apple-blue transition-colors">Mostakim Jihad</a>
+                        </div>
+                    </div> -->
+                    
+                    <!-- <div class="compact-contact-item">
+                        <div class="compact-contact-icon">
+                            <i class="fab fa-github text-apple-gray-500 text-xs"></i>
+                        </div>
+                        <div class="compact-contact-text">
+                            <p class="compact-contact-label">GitHub</p>
+                            <a href="https://github.com/mostakimjihad" class="compact-contact-value hover:text-apple-blue transition-colors">github.com/mostakimjihad</a>
+                        </div>
+                    </div> -->
+                    
+                    <div class="compact-contact-item">
+                        <div class="compact-contact-icon">
+                            <i class="fas fa-map-marker-alt text-apple-gray-500 text-xs"></i>
+                        </div>
+                        <div class="compact-contact-text">
+                            <p class="compact-contact-label">Location</p>
+                            <p class="compact-contact-value">Bawnia Bazar, Dhaka-1212, Bangladesh</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div>
-                <h3 class="text-2xl font-bold text-gray-900 text-center lg:text-left">Education</h3>
-                <div class="mt-8 space-y-8">
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 flex-shrink-0">
-                            <img class="w-12 h-12 rounded-full object-cover" src="asset/download (1).png" alt="Green University Logo">
+
+            <!-- Research Interests -->
+            <div class="compact-section">
+                <h2 class="compact-section-title">Research Interests</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-apple-gray-100 text-apple-gray-700 px-3 py-1.5 rounded-full text-xs font-medium border border-apple-gray-200">Digital Twin</span>
+                    <span class="bg-apple-gray-100 text-apple-gray-700 px-3 py-1.5 rounded-full text-xs font-medium border border-apple-gray-200">Vehicular Edge Computing</span>
+                    <span class="bg-apple-gray-100 text-apple-gray-700 px-3 py-1.5 rounded-full text-xs font-medium border border-apple-gray-200">Resource Scheduling</span>
+                    <span class="bg-apple-gray-100 text-apple-gray-700 px-3 py-1.5 rounded-full text-xs font-medium border border-apple-gray-200">Smart Transportation</span>
+                </div>
+            </div>
+
+            <!-- Availability Notice -->
+            <div class="compact-section">
+                <div class="bg-apple-gray-50 border border-apple-gray-200 rounded-xl p-4">
+                    <div class="flex items-center mb-2">
+                        <div class="w-6 h-6 rounded-full bg-apple-blue flex items-center justify-center mr-3">
+                            <i class="fas fa-check text-white text-xs"></i>
                         </div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-900">B.Sc. in Computer Science and Engineering</h4>
-                            <p class="text-gray-600">Green University of Bangladesh (2020 – 2024)</p>
-                            <p class="text-gray-500">CGPA: 3.61/4.00</p>
-                        </div>
+                        <p class="text-apple-gray-900 font-medium text-sm">Open to Opportunities</p>
                     </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 flex-shrink-0">
-                            <img class="w-12 h-12 rounded-full object-cover" src="asset/Dhaka_City_College_Seal.svg.png" alt="Dhaka City College Logo">
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-900">Higher Secondary Certificate</h4>
-                            <p class="text-gray-600">Dhaka City College (2017 – 2019)</p>
-                            <p class="text-gray-500">GPA: 4.00/5.00</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-12 h-12 flex-shrink-0">
-                            <img class="w-12 h-12 rounded-full object-cover" src="asset/download (5).jpeg" alt="Banani Bidyaniketon School Logo">
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-semibold text-gray-900">Secondary School Certificate</h4>
-                            <p class="text-gray-600">Banani Bidyaniketon School and College (2016 – 2017)</p>
-                            <p class="text-gray-500">GPA: 5.00/5.00</p>
-                        </div>
-                    </div>
+                    <p class="text-apple-gray-600 text-xs leading-relaxed">
+                        Available for research collaborations, graduate studies, and software engineering roles in cutting-edge technologies.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-    <div class="relative">
-        <div class="absolute inset-0 flex items-center">
-            <div class="w-full border-t border-gray-300"></div>
-        </div>
-        <div class="relative flex justify-center">
-            <img src="asset/suitcase.png" alt="Separator Icon" class="h-6 w-auto">
-        </div>
+
+    <!-- Scrollable Content -->
+    <div class="scrollable-content">
+        <!-- Navbar -->
+        <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md">
+            <nav class="max-w-screen-xl mx-auto px-4 py-3">
+                <div class="flex items-center justify-between">
+                    <a href="#" class="text-apple-gray-600 font-medium text-lg">Mostakim Jihad</a>
+                    
+                    <!-- Desktop Menu -->
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#publications" class="text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Publications</a>
+                        <a href="#experience" class="text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Experience</a>
+                        <a href="#projects" class="text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Projects</a>
+                        <a href="#skills" class="text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Skills</a>
+                        <a href="#awards" class="text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Awards</a>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="md:hidden text-apple-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu -->
+                <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-3 pb-2">
+                    <a href="#publications" class="block text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Publications</a>
+                    <a href="#experience" class="block text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Experience</a>
+                    <a href="#projects" class="block text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Projects</a>
+                    <a href="#skills" class="block text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Skills</a>
+                    <a href="#awards" class="block text-apple-gray-600 hover:text-apple-gray-900 text-sm font-medium transition-colors">Awards</a>
+                </div>
+            </nav>
+        </header>
+
+
+        <!-- Publications & Recent Activities Section -->
+        <section id="publications" class="section-padding bg-white">
+            <div class="max-w-screen-xl mx-auto px-4">
+                <h2 class="compact-heading font-semibold text-apple-gray-900 mb-12 text-left">Professional Memberships & Activities</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Recent Activities -->
+                    <div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-6 text-lg">Professional Memberships</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                                <div class="flex items-start">
+                                    <div class="bg-purple-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                                        <i class="fas fa-users text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-apple-gray-900">IEEE Computer Society</h4>
+                                        <p class="text-apple-gray-500 compact-text mb-2">Treasurer | 2023 - Present</p>
+                                        <p class="text-apple-gray-600 compact-text">Organized events on emerging technologies and managed financial budgets for the student branch chapter.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                                <div class="flex items-start">
+                                    <div class="bg-red-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                                        <i class="fas fa-handshake text-red-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-apple-gray-900">STI Conference Volunteer</h4>
+                                        <p class="text-apple-gray-500 compact-text mb-2">International Conference on Sustainable Technologies for Industry 5.0 | 2023</p>
+                                        <p class="text-apple-gray-600 compact-text">Contributed as a technical volunteer, gaining insights into sustainable technologies and supporting conference operations.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                                <div class="flex items-start">
+                                    <div class="bg-indigo-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                                        <i class="fas fa-calendar-alt text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium text-apple-gray-900">IEEE CS Bangladesh Chapter</h4>
+                                        <p class="text-apple-gray-500 compact-text mb-2">Event Management Team | 2023 - Present</p>
+                                        <p class="text-apple-gray-600 compact-text">Assisted in organizing and managing events conducted by the Secretariat, contributing to smooth execution.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Publications -->
+                    <div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-6 text-lg">Publications</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Journal Paper -->
+                            <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift shadow-sm">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div class="flex items-center">
+                                        <div class="bg-green-100 p-2 rounded-lg mr-3 flex-shrink-0">
+                                            <i class="fas fa-book text-green-600"></i>
+                                        </div>
+                                        <div>
+                                            <span class="inline-block bg-green-100 text-green-800 text-xs font-medium px-3 py-1 rounded-full">Journal Paper • Q1 • IF: 6.1</span>
+                                        </div>
+                                    </div>
+                                    <!-- <button class="bg-apple-blue text-white p-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center text-sm">
+                                        <i class="fas fa-download mr-1"></i>
+                                        PDF
+                                    </button> -->
+                                </div>
+                                
+                                <h3 class="font-semibold text-apple-gray-900 mb-3 text-base leading-tight">Quality of experience aware task execution in digital twinning vehicular edge computing: A framework and A3C algorithm</h3>
+                                
+                                <div class="space-y-2 mb-4">
+                                    <div class="flex items-start">
+                                        <span class="text-apple-gray-900 font-medium text-sm min-w-16">Authors:</span>
+                                        <span class="text-apple-gray-600 text-sm flex-1">
+                                            <b>Mostakim Jihad</b>, Abdullah Al Fahad, Palash Roy, Md. Abdur Razzaque, Abdulhameed Alelaiwi, Md. Rafiul Hassan, and M. Mehedi Hassan
+                                        </span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="text-apple-gray-900 font-medium text-sm min-w-16">Journal:</span>
+                                        <span class="text-apple-gray-600 text-sm flex-1">
+                                            <span class="font-medium">Future Generation Computer Systems</span>, Volume 176, 2026, Article 108144
+                                        </span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="text-apple-gray-900 font-medium text-sm min-w-16">DOI:</span>
+                                        <span class="text-apple-gray-600 text-sm flex-1">10.1016/j.future.2025.108144</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between pt-3 border-t border-apple-gray-100">
+                                    <a href="https://doi.org/10.1016/j.future.2025.108144" class="text-apple-blue hover:underline text-sm font-medium flex items-center">
+                                        <i class="fas fa-external-link-alt mr-1 text-xs"></i>
+                                        View Publication
+                                    </a>
+                                    <div class="flex space-x-2">
+                                        <span class="text-apple-gray-400 text-xs">2026</span>
+                                        <span class="text-apple-gray-400 text-xs">•</span>
+                                        <span class="text-apple-gray-400 text-xs">Q1 Journal</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Conference Paper -->
+                            <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift shadow-sm">
+                                <div class="flex items-start justify-between mb-4">
+                                    <div class="flex items-center">
+                                        <div class="bg-blue-100 p-2 rounded-lg mr-3 flex-shrink-0">
+                                            <i class="fas fa-users text-blue-600"></i>
+                                        </div>
+                                        <div>
+                                            <span class="inline-block bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Conference Paper</span>
+                                        </div>
+                                    </div>
+                                    <!-- <button class="bg-apple-blue text-white p-2 rounded-lg hover:bg-blue-600 transition-colors flex items-center text-sm">
+                                        <i class="fas fa-download mr-1"></i>
+                                        PDF
+                                    </button> -->
+                                </div>
+                                
+                                <h3 class="font-semibold text-apple-gray-900 mb-3 text-base leading-tight">Quality of Experience Aware Task Offloading in Digital Twinning Vehicular Edge Computing</h3>
+                                
+                                <div class="space-y-2 mb-4">
+                                    <div class="flex items-start">
+                                        <span class="text-apple-gray-900 font-medium text-sm min-w-16">Authors:</span>
+                                        <span class="text-apple-gray-600 text-sm flex-1">
+                                            <b>Mostakim Jihad</b>, M. T. Rodshi, A. Al Fahad, P. Roy, M. A. Razzaque, and M. Mehedi Hassan
+                                        </span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="text-apple-gray-900 font-medium text-sm min-w-16">Conference:</span>
+                                        <span class="text-apple-gray-600 text-sm flex-1">
+                                            <span class="font-medium">20th International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT)</span>, Abu Dhabi, 2024
+                                        </span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="text-apple-gray-900 font-medium text-sm min-w-16">DOI:</span>
+                                        <span class="text-apple-gray-600 text-sm flex-1">10.1109/DCOSS-IoT61029.2024.00043</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-center justify-between pt-3 border-t border-apple-gray-100">
+                                    <a href="https://doi.org/10.1109/DCOSS-IoT61029.2024.00043" class="text-apple-blue hover:underline text-sm font-medium flex items-center">
+                                        <i class="fas fa-external-link-alt mr-1 text-xs"></i>
+                                        View Publication
+                                    </a>
+                                    <div class="flex space-x-2">
+                                        <span class="text-apple-gray-400 text-xs">2024</span>
+                                        <span class="text-apple-gray-400 text-xs">•</span>
+                                        <span class="text-apple-gray-400 text-xs">Conference</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Work Experience Section -->
+        <section id="experience" class="section-padding bg-apple-gray-50">
+            <div class="max-w-screen-xl mx-auto px-4">
+                <h2 class="compact-heading font-semibold text-apple-gray-900 mb-12 text-left">Education & Experience</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <!-- Education -->
+                    <div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-6 text-lg">Education</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-2xl hover-lift">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3">
+                                        <img src="asset/download (1).png" alt="Green University Logo" class="w-6 h-6 object-contain">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium text-apple-gray-900">B.Sc. in CSE</h3>
+                                        <p class="text-apple-gray-400 text-xs">2020 – 2024</p>
+                                    </div>
+                                </div>
+                                <p class="text-apple-gray-500 compact-text">Green University of Bangladesh</p>
+                                <p class="text-apple-gray-900 font-medium mt-2">CGPA: 3.61/4.00</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-2xl hover-lift">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3">
+                                        <img src="asset/Dhaka_City_College_Seal.svg.png" alt="Dhaka City College Logo" class="w-6 h-6 object-contain">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium text-apple-gray-900">HSC</h3>
+                                        <p class="text-apple-gray-400 text-xs">2017 – 2019</p>
+                                    </div>
+                                </div>
+                                <p class="text-apple-gray-500 compact-text">Dhaka City College</p>
+                                <p class="text-apple-gray-900 font-medium mt-2">GPA: 4.00/5.00</p>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-2xl hover-lift">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center mr-3">
+                                        <img src="asset/download (5).jpeg" alt="Banani Bidyaniketon School Logo" class="w-6 h-6 object-contain">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-medium text-apple-gray-900">SSC</h3>
+                                        <p class="text-apple-gray-400 text-xs">2016 – 2017</p>
+                                    </div>
+                                </div>
+                                <p class="text-apple-gray-500 compact-text">Banani Bidyaniketon School</p>
+                                <p class="text-apple-gray-900 font-medium mt-2">GPA: 5.00/5.00</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Work Experience -->
+                    <div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-6 text-lg">Work Experience</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-2xl hover-lift">
+                                <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
+                                    <div class="flex items-start mb-4 md:mb-0">
+                                        <div class="w-12 h-12 rounded-full bg-apple-gray-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                            <img src="asset/unisoft_logo.jpeg" alt="Mysoftheaven Logo" class="w-8 h-8 object-contain rounded-full">
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-apple-gray-900">Software Engineer</h3>
+                                            <p class="text-apple-gray-500 compact-text">Unisoft Systems Limited</p>
+                                            <p class="text-apple-gray-400 text-xs">Jan 2025 - Present</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex-1">
+                                        <ul class="text-apple-gray-600 compact-text space-y-2">
+                                            <li class="flex items-start">
+                                                <span class="text-apple-blue mr-2">•</span>
+                                                Design and implement ERP solutions with focus on Odoo customization, rapid module development, and external API integrations
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-apple-blue mr-2">•</span>
+                                                Improve ERP performance and scalability by researching and applying modern technologies
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-2xl hover-lift">
+                                <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
+                                    <div class="flex items-start mb-4 md:mb-0">
+                                        <div class="w-12 h-12 rounded-full bg-apple-gray-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                            <img src="asset/logo.jpeg" alt="Mysoftheaven Logo" class="w-8 h-8 object-contain rounded-full">
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-apple-gray-900">Jr. Software Engineer</h3>
+                                            <p class="text-apple-gray-500 compact-text">Mysoftheaven (BD) Ltd.</p>
+                                            <p class="text-apple-gray-400 text-xs">May 2024 - Jan 2025</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex-1">
+                                        <ul class="text-apple-gray-600 compact-text space-y-2">
+                                            <li class="flex items-start">
+                                                <span class="text-apple-blue mr-2">•</span>
+                                                Deployed MHL project management system to monitor ongoing government projects
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-apple-blue mr-2">•</span>
+                                                Undertook Odoo custom development, tailoring, and configuration
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-apple-blue mr-2">•</span>
+                                                Managed the Odoo partner program
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-2xl hover-lift">
+                                <div class="flex flex-col md:flex-row md:items-start md:space-x-6">
+                                    <div class="flex items-start mb-4 md:mb-0">
+                                        <div class="w-12 h-12 rounded-full bg-apple-gray-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                            <img src="asset/janatawifi1.jpg" alt="JanataWifi Logo" class="w-8 h-8 object-contain rounded-full">
+                                        </div>
+                                        <div>
+                                            <h3 class="font-semibold text-apple-gray-900">AI Engineer Intern</h3>
+                                            <p class="text-apple-gray-500 compact-text">JanataWifi</p>
+                                            <p class="text-apple-gray-400 text-xs">Oct 2023 - Dec 2023</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex-1">
+                                        <ul class="text-apple-gray-600 compact-text space-y-2">
+                                            <li class="flex items-start">
+                                                <span class="text-apple-blue mr-2">•</span>
+                                                Worked with Microsoft Azure, GitHub, and related AI tools
+                                            </li>
+                                            <li class="flex items-start">
+                                                <span class="text-apple-blue mr-2">•</span>
+                                                Supported AI-driven solutions and deployment tasks
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section-padding bg-white">
+            <div class="max-w-screen-xl mx-auto px-4">
+                <h2 class="compact-heading font-semibold text-apple-gray-900 mb-12 text-center">Projects</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                        <div class="h-40 bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-robot text-blue-500 text-5xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-2">Bangla Chatbot for LDTax</h3>
+                        <p class="text-apple-gray-600 compact-text mb-4">Land Development Tax Management System with modern online payment and search capabilities.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-tag">Langchain</span>
+                            <span class="skill-tag">Flask</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                        <a href="https://ldtax.gov.bd/" class="text-apple-blue hover:underline compact-text font-medium">View Project</a>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                        <div class="h-40 bg-gradient-to-br from-green-50 to-green-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-tasks text-green-500 text-5xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-2">TaskManager</h3>
+                        <p class="text-apple-gray-600 compact-text mb-4">Task management system that streamlines workflows and enhances collaboration for teams.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">Bootstrap</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/mostakimjihad/TaskManager" class="text-apple-blue hover:underline compact-text font-medium">GitHub</a>
+                            <a href="https://www.youtube.com/watch?v=yhv9OjMyHz8" class="text-apple-blue hover:underline compact-text font-medium">Demo</a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                        <div class="h-40 bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-utensils text-yellow-500 text-5xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-2">KhabarKoi</h3>
+                        <p class="text-apple-gray-600 compact-text mb-4">Restaurant management Android app for searching restaurants and managing menus.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">XML</span>
+                            <span class="skill-tag">Firebase</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/mostakimjihad/KhabarKoi" class="text-apple-blue hover:underline compact-text font-medium">GitHub</a>
+                            <a href="https://www.youtube.com/watch?v=357hAKYDg4s" class="text-apple-blue hover:underline compact-text font-medium">Demo</a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                        <div class="h-40 bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-chalkboard-teacher text-purple-500 text-5xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-2">Pathshala</h3>
+                        <p class="text-apple-gray-600 compact-text mb-4">Virtual classroom platform for course management, attendance, and student interaction.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-tag">HTML/CSS/JS</span>
+                            <span class="skill-tag">MySQL</span>
+                        </div>
+                        <a href="https://github.com/mostakimjihad/pathshala" class="text-apple-blue hover:underline compact-text font-medium">GitHub</a>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                        <div class="h-40 bg-gradient-to-br from-red-50 to-red-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-user-graduate text-red-500 text-5xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-2">VITA</h3>
+                        <p class="text-apple-gray-600 compact-text mb-4">Arduino-based robot with face recognition for attendance and classroom monitoring.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Arduino</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://github.com/mostakimjihad/VITA" class="text-apple-blue hover:underline compact-text font-medium">GitHub</a>
+                            <a href="https://youtu.be/qcQs7_vUBCk" class="text-apple-blue hover:underline compact-text font-medium">Demo</a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100 hover-lift">
+                        <div class="h-40 bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl mb-4 flex items-center justify-center">
+                            <i class="fas fa-file-alt text-indigo-500 text-5xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-apple-gray-900 mb-2">Automated File Organizer</h3>
+                        <p class="text-apple-gray-600 compact-text mb-4">Bash scripts for Linux to organize files, create workspaces, and encrypt data.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="skill-tag">Bash</span>
+                            <span class="skill-tag">Linux</span>
+                        </div>
+                        <a href="https://github.com/mostakimjihad/automated-file-organizer" class="text-apple-blue hover:underline compact-text font-medium">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section-padding bg-apple-gray-50">
+            <div class="max-w-screen-xl mx-auto px-4">
+                <h2 class="compact-heading font-semibold text-apple-gray-900 mb-12 text-center">Technical Skills</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100">
+                        <h3 class="font-medium text-apple-gray-900 mb-3 flex items-center">
+                            <i class="fas fa-code text-apple-blue mr-2"></i>
+                            Programming
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">C/C++</span>
+                            <span class="skill-tag">Bash</span>
+                            <span class="skill-tag">Java</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100">
+                        <h3 class="font-medium text-apple-gray-900 mb-3 flex items-center">
+                            <i class="fas fa-chart-line text-apple-blue mr-2"></i>
+                            Data Analysis
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">NumPy</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Seaborn</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100">
+                        <h3 class="font-medium text-apple-gray-900 mb-3 flex items-center">
+                            <i class="fas fa-brain text-apple-blue mr-2"></i>
+                            AI/ML Frameworks
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">Langchain</span>
+                            <span class="skill-tag">scikit-learn</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">TensorFlow</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-5 rounded-2xl border border-apple-gray-100">
+                        <h3 class="font-medium text-apple-gray-900 mb-3 flex items-center">
+                            <i class="fas fa-database text-apple-blue mr-2"></i>
+                            Database & Tools
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Postman</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards Section -->
+        <section id="awards" class="section-padding bg-white">
+            <div class="max-w-screen-xl mx-auto px-4">
+                <h2 class="compact-heading font-semibold text-apple-gray-900 mb-12 text-center">Awards & Achievements</h2>
+                
+                <div class="space-y-6">
+                    <div class="bg-apple-gray-50 p-5 rounded-2xl hover-lift">
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                                <i class="fas fa-trophy text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-apple-gray-900">IEEExtreme 17.0 | Team GreenT</h4>
+                                <p class="text-apple-gray-500 compact-text mb-2">Ranked 13th in Bangladesh | Team Lead</p>
+                                <p class="text-apple-gray-600 compact-text">Led Team GreenT to achieve 13th position in IEEExtreme 17.0, demonstrating strong problem-solving and teamwork.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-apple-gray-50 p-5 rounded-2xl hover-lift">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                                <i class="fas fa-award text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-apple-gray-900">Vice Chancellor's Award</h4>
+                                <p class="text-apple-gray-500 compact-text mb-2">Green University of Bangladesh | Summer 2022 & Fall 2022</p>
+                                <p class="text-apple-gray-600 compact-text">Issued by Prof. Dr. Md. Saiful Azad for academic excellence.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-apple-gray-50 p-5 rounded-2xl hover-lift">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 p-2 rounded-lg mr-4 flex-shrink-0">
+                                <i class="fas fa-award text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-apple-gray-900">Dean Award</h4>
+                                <p class="text-apple-gray-500 compact-text mb-2">Green University of Bangladesh | Fall 2023</p>
+                                <p class="text-apple-gray-600 compact-text">Issued by Dr. Muhammad Aminur Rahaman for outstanding academic performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-apple-gray-900 py-8">
+            <div class="max-w-screen-xl mx-auto px-4">
+                <div class="text-center text-apple-gray-400 compact-text">
+                    <p>&copy; 2024 Mostakim Jihad. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
     </div>
-       
-    <!-- Work Experience Section -->
-    <section id="experience" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-gray-900 text-center">Work Experience</h2>
-            <div class="mt-12 space-y-12">
-                <div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-16 h-16 flex-shrink-0">
-                            <img class="w-16 h-16 rounded-full object-cover" src="asset/logo.jpeg" alt="Mysoftheaven_logo">
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-900">Jr. Software Engineer</h3>
-                            <p class="text-gray-600">Mysoftheaven (BD) Ltd.</p>
-                            <p class="text-gray-500">May 2024 - PRESENT</p>
-                            <div class="mt-2 flex space-x-2">
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Python</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">ERP Development</span>
-                                <span class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded">Odoo</span>
-                            </div>
-                            <p class="mt-2 text-gray-600">Currently developing and customizing Odoo modules to enhance business operations, including sales, CRM, inventory, and
-                                accounting. Providing technical support and training to end-users, enhancing their ability to utilize Odoo’s features effectively.</p>
-                        </div>
-                    </div>
-                    <!-- Photo Subsection -->
-                    <!-- <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <img class="w-full h-48 object-cover rounded-lg shadow-md" src="asset/mysoft_worktime.jpg" alt="Work photo at Google 1">
-                        <img class="w-full h-48 object-cover rounded-lg shadow-md" src="asset/mysoft_workingtime2.jpg" alt="Work photo at Google 2">
-                    </div> -->
-                </div>
 
-                <div>
-                    <div class="flex items-start space-x-4">
-                        <div class="w-16 h-16 flex-shrink-0">
-                            <img class="w-16 h-16 rounded-full object-cover" src="asset/janatawifi1.jpg" alt="Meta Logo">
-                        </div>
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-900">AI Engineer Intern</h3>
-                            <p class="text-gray-600">JanataWifi</p>
-                            <p class="text-gray-500">Oct 2023 - Dec 2023</p>
-                            <div class="mt-2 flex flex-wrap space-x-2">
-                                <span class="bg-blue-100 text-blue-800 text-sm font-medium px-2.5 py-0.5 rounded">Azure OpenAI</span>
-                                <span class="bg-green-100 text-green-800 text-sm font-medium px-2.5 py-0.5 rounded">Langchain</span>
-                                <span class="bg-yellow-100 text-yellow-800 text-sm font-medium px-2.5 py-0.5 rounded">LLM</span>
-                                <span class="bg-red-100 text-red-800 text-sm font-medium px-2.5 py-0.5 rounded">Selenium</span>
-                                <span class="bg-purple-100 text-purple-800 text-sm font-medium px-2.5 py-0.5 rounded">bs4</span>
-                                <span class="bg-teal-100 text-teal-800 text-sm font-medium px-2.5 py-0.5 rounded">gpt-3.5-turbo</span>
-                                <span class="bg-pink-100 text-pink-800 text-sm font-medium px-2.5 py-0.5 rounded">gpt-4-8k</span>
-                            </div>
-                            <p class="mt-2 text-gray-600">Designed and implemented an innovative system architecture for a browser automation AI, enabling human-like interactions on
-                                diverse websites. Managed the project’s Git repository, ensuring version control, and developed advanced features, such as
-                                intelligent input field filling. Created comprehensive documentation for the project</p>
-                        </div>
-                    </div>
-                    <!-- Photo Subsection -->
-                    <!-- <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <img class="w-full h-48 object-cover rounded-lg shadow-md" src="asset/janatawifi_workingtime.jpg" alt="Work photo at Meta 1">
-                        <img class="w-full h-48 object-cover rounded-lg shadow-md" src="asset/janatawifi_kaj.jpg" alt="Work photo at Meta 2">
-                    </div> -->
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Publications Section -->
-    <section id="publications" class="bg-gray-50 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-4xl font-extrabold text-gray-900 mb-12">Publications</h2>
-                <ul class="space-y-8">
-                    <li class="bg-gradient-to-r from-blue-50 to-white p-8 rounded-xl shadow-lg flex items-start space-x-6">
-                        <i class="fas fa-book text-blue-600 text-3xl"></i>
-                        <div class="text-left">
-                            <h3 class="text-2xl font-semibold text-gray-900 mb-2">Quality of Experience Aware Task Offloading in Digital Twinning Vehicular Edge Computing</h3>
-                            <p class="mt-3 text-gray-700">
-                                <span class="text-blue-900 font-bold">Authors:</span> 
-                                <b class="text-gray-900">Mostakim Jihad</b>, Mashraba Tasnim Rodshi, Abdullah Al Fahad, Palash Roy, Md. Abdur Razzaque, Mohammad Mehedi Hassan
-                            </p>
-                            <p class="mt-3 text-gray-700">
-                                <span class="text-blue-900 font-bold">Conference:</span> 
-                                <a href="https://ieeexplore.ieee.org/document/10621520" class="text-blue-500 font-semibold underline">20th Annual International Conference on Distributed Computing in Smart Systems and the Internet of Things (DCOSS-IoT)</a>
-                            </p>
-                            <p class="mt-3 text-gray-700">
-                                <span class="text-blue-900 font-bold">Year:</span> 
-                                <span class="text-gray-900 font-semibold">2024</span>
-                            </p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    
-
-    <!-- Projects Section -->
-    <section id="projects" class="bg-gray-100 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-3xl font-bold text-gray-900">My Projects</h2>
-                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <img src="asset/demo.png" alt="Project 3" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-gray-900">TaskManager</h3>
-                        <p class="mt-4 text-gray-600">The task management system streamlines project workflows for internal teams and external clients, enhancing communication,
-                            task tracking, and collaboration.</p>
-                        <a href="https://github.com/mostakimjihad/TaskManager" class="mt-4 inline-block text-blue-600 hover:text-blue-700">GitHub Repo</a><span> | </span>
-                        <a href="https://www.youtube.com/watch?v=yhv9OjMyHz8&t=55s" class="mt-4 inline-block text-blue-600 hover:text-blue-700">Demo Youtube Video</a>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <img src="asset/new_logo-removebg-preview 1.png" alt="Project 3" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-gray-900">KhabarKoi</h3>
-                        <p class="mt-4 text-gray-600">KhabarKoi is a restaurant management android application. With this application, users can search top-rated restaurants for a
-                            particular food in a location.</p>
-                        <a href="https://github.com/mostakimjihad/KhabarKoi" class="mt-4 inline-block text-blue-600 hover:text-blue-700">GitHub Repo</a><span> | </span>
-                        <a href="https://www.youtube.com/watch?v=357hAKYDg4s" class="mt-4 inline-block text-blue-600 hover:text-blue-700">Demo Youtube Video</a>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-md">
-                        <img src="asset/vita.jpg" alt="Project 3" class="w-full h-48 object-cover rounded-md mb-4">
-                        <h3 class="text-xl font-semibold text-gray-900">VITA</h3>
-                        <p class="mt-4 text-gray-600">Virtual Teacher Assistant is an Arduino-based robot, which can give attendance to the student using face recognition. It can
-                            monitor student participation in the class.</p>
-                        <a href="https://github.com/mostakimjihad/VITA" class="mt-4 inline-block text-blue-600 hover:text-blue-700">GitHub Repo</a><span> | </span>
-                        <a href="https://www.youtube.com/watch?v=qcQs7_vUBCk&t=13s" class="mt-4 inline-block text-blue-600 hover:text-blue-700">Demo Youtube Video</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Licenses & Certifications Section -->
-    <section id="licenses-certifications" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div>
-                <h2 class="text-3xl font-bold text-gray-900 mb-8">Licenses & Certifications</h2>
-                <ul class="space-y-6">
-                    <li class="bg-gray-100 p-6 rounded-lg shadow-md flex items-start space-x-4">
-                        <img src="asset/bitm.png" alt="Certification Title 1" class="w-20 h-20 object-cover rounded-md">
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-900">
-                                PHP with Laravel Framework</h3>
-                            <p class="mt-2 text-gray-600">BASIS Institute of Technology & Management (BITM)</p>
-                            <p class="mt-2 text-gray-600">Issued Sep 2023</p>
-                        </div>
-                    </li>
-                    <li class="bg-gray-100 p-6 rounded-lg shadow-md flex items-start space-x-4">
-                        <img src="asset/wsda.jpeg" alt="Certification Title 2" class="w-20 h-20 object-cover rounded-md">
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-900">Professional English Communication Skill</h3>
-                            <p class="mt-2 text-gray-600">WSDA New Zealand</p>
-                            <p class="mt-2 text-gray-600">Issued Aug 2023</p>
-                        </div>
-                    </li>
-                    <li class="bg-gray-100 p-6 rounded-lg shadow-md flex items-start space-x-4">
-                        <img src="asset/ieee.png" alt="Certification Title 3" class="w-20 h-20 object-cover rounded-md">
-                        <div>
-                            <h3 class="text-xl font-semibold text-gray-900">Build Your Carrier In Software Quality Assurance </h3>
-                            <p class="mt-2 text-gray-600">IEEE Computer Society Bangladesh Chapter</p>
-                            <p class="mt-2 text-gray-600">Issued Apr 2023Issued</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    <section id="recent-activities" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold text-gray-900">Recent Activities</h2>
-                <p class="mt-4 text-lg text-gray-600">Check out my latest projects and accomplishments.</p>
-            </div>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Repeat this block for each recent activity -->
-                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-                    <img class="h-40 w-full object-cover rounded-t-lg" src="asset/WhatsApp Image 2024-07-13 at 14.50.26_4cf9cc33.jpg" alt="Activity 1">
-                    <h3 class="mt-4 text-xl font-semibold text-gray-800">Md. Abdur Razzaque Presents Groundbreaking Research at DCOSS-IoT 2024</h3>
-                    <p class="mt-2 text-gray-600">Md. Abdur Razzaque sir, Chairman of Dhaka University's CSE department, presents our research works.</p>
-                    <a href="blog\activity1.html" class="mt-4 inline-block text-blue-600 hover:text-blue-700">Read more</a>
-                </div>
-                <!-- End repeat block -->
-                 <!-- Repeat this block for each recent activity -->
-                <div class="bg-gray-100 p-6 rounded-lg shadow-lg">
-                    <img class="h-40 w-full object-cover rounded-t-lg" src="asset/vc.jpeg" alt="Activity 1">
-                    <h3 class="mt-4 text-xl font-semibold text-gray-800">Vice Chancellor Award for Academic Excellence</h3>
-                    <p class="mt-2 text-gray-600">Proud to accept the Vice Chancellor Award for Academic Excellence with a GPA of 3.94! 🎓 This achievement in my BSc in CSE journey inspires me to work even harder and stay productive.</p>
-                    <a href="blog\activity2.html" class="mt-4 inline-block text-blue-600 hover:text-blue-700">Read more</a>
-                </div>
-                <!-- End repeat block -->
-            </div>
-        </div>
-    </section>
-    
-    <!-- Area of Interest Section -->
-    <section id="interests" class="bg-gradient-to-r from-pink-100 to-purple-100 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold text-gray-800">Area of Interest</h2>
-                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold text-purple-600">Research and Development (R&D)</h3>
-                        <p class="mt-4 text-gray-700">Exploring innovative solutions and advancing technologies through rigorous research and development.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold text-purple-600">System Architecture Design</h3>
-                        <p class="mt-4 text-gray-700">Designing robust and scalable system architectures for complex applications.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold text-purple-600">Software Engineering</h3>
-                        <p class="mt-4 text-gray-700">Developing high-quality software solutions with a focus on backend servers and DevOps.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold text-purple-600">Artificial Intelligence (AI) and Machine Learning (ML)</h3>
-                        <p class="mt-4 text-gray-700">Creating intelligent systems and models to solve real-life problems using AI and ML technologies.</p>
-                    </div>
-                    <div class="bg-white p-6 rounded-lg shadow-lg transition transform hover:-translate-y-2 hover:shadow-2xl">
-                        <h3 class="text-2xl font-semibold text-purple-600">Large Language Models (LLM) and Agent-related Projects</h3>
-                        <p class="mt-4 text-gray-700">Working on projects involving large language models and intelligent agents for various applications.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="bg-white py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold text-gray-900">Contact Me</h2>
-                <p class="mt-4 text-lg text-gray-600">Feel free to reach out to me through the following channels:</p>
-            </div>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 2a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V4a2 2 0 012-2h8z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h8M8 10h8m-8 4h8m-8 4h8"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>Email:</b> <a href="mailto:mostakimjihad652001@gmail.com" class="text-blue-600 hover:text-blue-700">mostakimjihad652001@gmail.com</a></p>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l1.334 12H19.666L21 10M4 4h16l-1.5 6H5.5L4 4z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6h.01M18 6h.01M14 9h.01M10 9h.01M14 12h.01M10 12h.01"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>Phone:</b> +880 1870460323</p>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636A9 9 0 1112 21a9 9 0 016.364-15.364zM12 3v6l3 3"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/mostakim-jihad-9b844a202/" class="text-blue-600 hover:text-blue-700">Mostakim Jihad</a></p>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 6.75L6 10.5m12-6.75l-3.75 3.75M21 12H3m18 0c0 6.627-5.373 12-12 12S3 18.627 3 12h18z"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>GitHub:</b> <a href="https://github.com/mostakimjihad" class="text-blue-600 hover:text-blue-700">github.com/mostakimjihad</a></p>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.5c5.142 0 9.5 4.358 9.5 9.5s-4.358 9.5-9.5 9.5-9.5-4.358-9.5-9.5S6.858 2.5 12 2.5zM12 2v2.5M12 19.5V22M4.93 4.93L6.343 6.343M17.657 17.657L19.07 19.07M2.5 12H5M19 12h2.5M4.93 19.07L6.343 17.657M17.657 6.343L19.07 4.93"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>Address:</b> Bawnia Bazar, Dhaka-1212</p>
-                    </div>
-                </div>
-                <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.844601616826!2d90.37123931498174!3d23.75095938459078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b738f89f9d%3A0x7b1b6b2a2dd8f0c8!2sBawnia%20Bazar%2C%20Dhaka%201212%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1622614977760!5m2!1sen!2sus" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center text-gray-400">
-                <p>&copy; 2024 Mostakim Jihad. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
