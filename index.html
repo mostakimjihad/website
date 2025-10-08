@@ -73,9 +73,15 @@
             top: 0;
             width: 380px;
             height: 100vh;
-            overflow-y: hidden;
+            overflow-y: auto;
             z-index: 40;
             box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05);
+            /* Hide scrollbar for WebKit browsers */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+        .fixed-hero::-webkit-scrollbar {
+            display: none; /* Chrome, Safari and Opera */
         }
         .scrollable-content {
             margin-left: 380px;
@@ -151,6 +157,7 @@
                 position: relative;
                 width: 100%;
                 height: auto;
+                overflow-y: visible;
             }
             .scrollable-content {
                 margin-left: 0;
@@ -163,7 +170,7 @@
 <body class="bg-apple-gray-50 text-apple-gray-600 font-sf-pro">
     <!-- Fixed Hero Section -->
     <section class="fixed-hero hero-gradient">
-        <div class="h-full flex flex-col p-6 overflow-y-auto">
+        <div class="h-full flex flex-col p-6">
             <!-- Profile Section -->
             <div class="text-center mb-6">
                 <div class="w-32 h-32 rounded-full overflow-hidden bg-gradient-to-br from-apple-gray-100 to-apple-gray-200 flex items-center justify-center mx-auto mb-4">
