@@ -3,143 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Activity Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:wght@300;400,500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif-heading': ['"Crimson Pro"', 'Georgia', 'serif'],
+                        'body': ['"Source Sans 3"', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'academic': {
+                            navy: '#1a3a5c',
+                            'navy-dark': '#0f2440',
+                            'navy-light': '#2a5a8c',
+                            burgundy: '#7b2d26',
+                            gold: '#b8860b',
+                            'gold-light': '#d4a843',
+                            cream: '#fafaf7',
+                            'warm-white': '#f8f6f1',
+                            'warm-gray': '#e8e4dc',
+                            'text-dark': '#2c2c2c',
+                            'text-body': '#3d3d3d',
+                            'text-muted': '#6b6b6b',
+                            'border': '#d4cfc5',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <title>Vice Chancellor Award for Academic Excellence | Mostakim Jihad</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Source Sans 3', system-ui, sans-serif;
+            color: #3d3d3d;
+            background-color: #fafaf7;
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4 { font-family: 'Crimson Pro', Georgia, serif; }
+        .academic-nav {
+            background: #1a3a5c;
+            border-bottom: 3px solid #b8860b;
+        }
+        .nav-link {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            padding: 0.75rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff;
+            border-bottom-color: #b8860b;
+        }
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #6b6b6b;
+        }
+        .meta-item i { color: #b8860b; width: 16px; text-align: center; }
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: #b8860b;
+            margin-bottom: 2rem;
+        }
+        .academic-footer {
+            background: #1a3a5c;
+            border-top: 3px solid #b8860b;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar (same as your current page) -->
-    <!-- Add your Navbar here -->
-    <header>
-        <nav class="bg-white border-gray-200 dark:bg-gray-900">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
-                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Mostakim Jihad</span>
+    <!-- Navigation -->
+    <nav class="academic-nav sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex items-center justify-between">
+                <a href="../index.html" class="text-white font-serif-heading text-lg font-semibold tracking-wide py-3">
+                    M. Jihad
                 </a>
-                <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../index.html#about" class="nav-link">About</a>
+                    <a href="../index.html#publications" class="nav-link">Publications</a>
+                    <a href="../index.html#research" class="nav-link">Research</a>
+                    <a href="../index.html#education" class="nav-link">Education</a>
+                    <a href="../index.html#experience" class="nav-link">Experience</a>
+                    <a href="../index.html#blog" class="nav-link active">Blog</a>
+                    <a href="../index.html#projects" class="nav-link">Projects</a>
+                    <a href="../index.html#awards" class="nav-link">Awards</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
-                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                        <li>
-                            <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
-                        </li>
-                        <li>
-                            <a href="#about" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
-                        </li>
-                        <li>
-                            <a href="#services" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Services</a>
-                        </li>
-                        <li>
-                            <a href="#projects" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
-                        </li>
-                        <li>
-                            <a href="#contact" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
-                        </li>
-                    </ul>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <div class="flex flex-col space-y-1 pt-2 border-t border-white/10">
+                    <a href="../index.html" class="text-white/80 hover:text-white text-sm py-1.5">← Back to Home</a>
+                    <a href="../index.html#publications" class="text-white/80 hover:text-white text-sm py-1.5">Publications</a>
+                    <a href="../index.html#blog" class="text-white/80 hover:text-white text-sm py-1.5">Blog</a>
+                    <a href="../index.html#awards" class="text-white/80 hover:text-white text-sm py-1.5">Awards</a>
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <!-- Activity Details Section -->
-    <section class="bg-gray-50 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center bg-white shadow-lg rounded-lg p-8">
-                <h1 class="text-5xl font-extrabold text-gray-900 mb-4">Vice Chancellor Award for Academic Excellence</h1>
-                <h2 class="text-2xl text-gray-600 mb-8">A Tribute to Hard Work and Dedication</h2>
-                <div class="flex flex-wrap justify-center items-center mb-8 space-y-4 sm:space-y-0 sm:space-x-8">
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-user text-blue-500 mr-3"></i>
-                        <p class="text-lg text-gray-700">Author: Mostakim Jihad</p>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-calendar-alt text-green-500 mr-3"></i>
-                        <p class="text-lg text-gray-700">Published on: July 13, 2024</p>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-calendar-day text-yellow-500 mr-3"></i>
-                        <p class="text-lg text-gray-700">Event Date: Aug 15, 2023</p>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-map-marker-alt text-pink-500 mr-3"></i>
-                        <p class="text-lg text-gray-700">Location: Green University of Bangladesh, Bangladesh</p>
-                    </div>
-                    <div class="flex items-center space-x-2">
-                        <i class="fas fa-clock text-purple-500 mr-3"></i>
-                        <p class="text-lg text-gray-700">Time: 03:00 PM - 04:00 PM</p>
-                    </div>
+    <!-- Article Header -->
+    <section class="bg-white border-b border-academic-border">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-14">
+            <!-- Breadcrumb -->
+            <nav class="mb-6 text-sm text-academic-text-muted">
+                <a href="../index.html" class="hover:text-academic-navy transition-colors">Home</a>
+                <span class="mx-2">/</span>
+                <a href="../index.html#blog" class="hover:text-academic-navy transition-colors">Blog</a>
+                <span class="mx-2">/</span>
+                <span class="text-academic-navy">Vice Chancellor Award</span>
+            </nav>
+
+            <h1 class="font-serif-heading text-2xl md:text-3xl lg:text-4xl font-bold text-academic-navy leading-tight mb-4">
+                Vice Chancellor Award for Academic Excellence
+            </h1>
+            <p class="font-serif-heading text-lg text-academic-text-muted italic mb-6">
+                A Tribute to Hard Work and Dedication
+            </p>
+
+            <!-- Meta Information -->
+            <div class="flex flex-wrap gap-x-6 gap-y-2 mb-4">
+                <div class="meta-item">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Mostakim Jihad</span>
                 </div>
-                <div class="flex justify-center items-center space-x-4">
-                    <img src="../asset/vc.jpeg" alt="Award Ceremony Image 1" class="w-1/2 h-auto rounded-lg shadow-lg">
-                    <img src="../asset/vc_cirtificate.jpeg" alt="Award Ceremony Image 2" class="w-1/2 h-auto rounded-lg shadow-lg">
+                <div class="meta-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Published: July 13, 2024</span>
                 </div>
-                <p class="mt-8 text-base sm:text-lg text-gray-600 leading-relaxed">Proud to accept the Vice Chancellor Award for Academic Excellence with a GPA of 3.94! This achievement marks a significant milestone in my university life as a BSc in CSE student. The journey has been challenging but incredibly rewarding, and it has fueled my passion for learning and personal growth. My heartfelt gratitude goes to my favorite teachers, whose unwavering support and motivation have been the driving force behind this accomplishment. Their guidance has been invaluable, inspiring me to push my boundaries and strive for excellence. This award is a testament to the hard work and dedication I've invested, and it continues to drive me to be more productive and committed to my goals.</p>
+                <div class="meta-item">
+                    <i class="fas fa-calendar-day"></i>
+                    <span>Event: Aug 15, 2023</span>
+                </div>
+                <div class="meta-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Green University of Bangladesh</span>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+                <span class="inline-block bg-academic-navy/5 border border-academic-border text-academic-navy text-xs font-medium px-3 py-1 rounded-sm">Award</span>
+                <span class="inline-block bg-academic-navy/5 border border-academic-border text-academic-navy text-xs font-medium px-3 py-1 rounded-sm">Academic Excellence</span>
+                <span class="inline-block bg-academic-navy/5 border border-academic-border text-academic-navy text-xs font-medium px-3 py-1 rounded-sm">Green University</span>
             </div>
         </div>
     </section>
-    <!-- Footer (same as your current page) -->
-    <!-- Contact Section -->
-    <section id="contact" class="bg-gray-100 py-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-4xl font-bold text-gray-900">Contact Me</h2>
-                <p class="mt-4 text-lg text-gray-600">Feel free to reach out to me through the following channels:</p>
+
+    <!-- Article Content -->
+    <article class="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+        <div class="section-divider"></div>
+
+        <!-- Images -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-white border border-academic-border rounded-sm overflow-hidden shadow-sm">
+                <img src="../asset/vc.jpeg" alt="Award Ceremony" class="w-full h-auto">
             </div>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="space-y-4">
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 2a2 2 0 012 2v16a2 2 0 01-2 2H8a2 2 0 01-2-2V4a2 2 0 012-2h8z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 6h8M8 10h8m-8 4h8m-8 4h8"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>Email:</b> <a href="mailto:mostakimjihad652001@gmail.com" class="text-blue-600 hover:text-blue-700">mostakimjihad652001@gmail.com</a></p>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l1.334 12H19.666L21 10M4 4h16l-1.5 6H5.5L4 4z"></path>
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6h.01M18 6h.01M14 9h.01M10 9h.01M14 12h.01M10 12h.01"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>Phone:</b> +880 1870460323</p>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636A9 9 0 1112 21a9 9 0 016.364-15.364zM12 3v6l3 3"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/mostakim-jihad-9b844a202/" class="text-blue-600 hover:text-blue-700">Mostakim Jihad</a></p>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 6.75L6 10.5m12-6.75l-3.75 3.75M21 12H3m18 0c0 6.627-5.373 12-12 12S3 18.627 3 12h18z"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>GitHub:</b> <a href="https://github.com/mostakimjihad" class="text-blue-600 hover:text-blue-700">github.com/mostakimjihad</a></p>
-                    </div>
-                    <div class="flex items-center">
-                        <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2.5c5.142 0 9.5 4.358 9.5 9.5s-4.358 9.5-9.5 9.5-9.5-4.358-9.5-9.5S6.858 2.5 12 2.5zM12 2v2.5M12 19.5V22M4.93 4.93L6.343 6.343M17.657 17.657L19.07 19.07M2.5 12H5M19 12h2.5M4.93 19.07L6.343 17.657M17.657 6.343L19.07 4.93"></path>
-                        </svg>
-                        <p class="ml-4 text-gray-600"><b>Address:</b> Bawnia Bazar, Dhaka-1212</p>
-                    </div>
-                </div>
-                <div>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.844601616826!2d90.37123931498174!3d23.75095938459078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b738f89f9d%3A0x7b1b6b2a2dd8f0c8!2sBawnia%20Bazar%2C%20Dhaka%201212%2C%20Bangladesh!5e0!3m2!1sen!2sus!4v1622614977760!5m2!1sen!2sus" width="100%" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                </div>
+            <div class="bg-white border border-academic-border rounded-sm overflow-hidden shadow-sm">
+                <img src="../asset/vc_cirtificate.jpeg" alt="VC Certificate" class="w-full h-auto">
             </div>
         </div>
-    </section>
-    
+
+        <!-- Image Caption -->
+        <p class="text-sm text-academic-text-muted italic text-center mb-8">
+            <i class="fas fa-camera text-academic-gold mr-1"></i>
+            Award ceremony and certificate — Vice Chancellor's Award, Green University of Bangladesh
+        </p>
+
+        <!-- Article Body -->
+        <div class="prose max-w-none">
+            <p class="text-academic-text-body text-base md:text-lg leading-relaxed mb-6">
+                Proud to accept the <strong class="text-academic-navy">Vice Chancellor Award for Academic Excellence</strong> 
+                with a GPA of 3.94! This achievement marks a significant milestone in my university life as a 
+                BSc in CSE student.
+            </p>
+
+            <p class="text-academic-text-body text-base md:text-lg leading-relaxed mb-6">
+                The journey has been challenging but incredibly rewarding, and it has fueled my passion for learning 
+                and personal growth. My heartfelt gratitude goes to my favorite teachers, whose unwavering support 
+                and motivation have been the driving force behind this accomplishment. Their guidance has been invaluable, 
+                inspiring me to push my boundaries and strive for excellence.
+            </p>
+
+            <p class="text-academic-text-body text-base md:text-lg leading-relaxed mb-6">
+                This award is a testament to the hard work and dedication I've invested, and it continues to drive me 
+                to be more productive and committed to my goals. The recognition from 
+                <strong class="text-academic-navy">Prof. Dr. Md. Saiful Azad</strong>, Vice Chancellor of 
+                Green University of Bangladesh, serves as a powerful motivator for my ongoing academic and research pursuits.
+            </p>
+
+            <!-- Highlight Box -->
+            <div class="bg-white border-l-3 border-l-[3px] border-academic-gold p-5 mt-8 rounded-r-sm" style="border-left: 3px solid #b8860b;">
+                <h3 class="font-serif-heading font-semibold text-academic-navy mb-2 flex items-center gap-2">
+                    <i class="fas fa-award text-academic-gold text-sm"></i>
+                    Award Details
+                </h3>
+                <ul class="text-sm text-academic-text-body space-y-1.5">
+                    <li><strong>Award:</strong> Vice Chancellor's Award</li>
+                    <li><strong>Institution:</strong> Green University of Bangladesh</li>
+                    <li><strong>Semester:</strong> Summer 2022 & Fall 2022</li>
+                    <li><strong>Awarded by:</strong> Prof. Dr. Md. Saiful Azad, Vice Chancellor</li>
+                    <li><strong>CGPA at time of award:</strong> 3.94 / 4.00</li>
+                </ul>
+            </div>
+        </div>
+    </article>
+
     <!-- Footer -->
-    <footer class="bg-gray-800 py-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center text-gray-400">
-                <p>&copy; 2024 Mostakim Jihad. All rights reserved.</p>
+    <footer class="academic-footer py-8 mt-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div class="text-center md:text-left">
+                    <a href="../index.html" class="text-white/90 font-serif-heading text-lg font-semibold">Mostakim Jihad</a>
+                    <p class="text-white/50 text-sm">Software Engineer & Researcher</p>
+                </div>
+                <div class="flex items-center gap-5">
+                    <a href="mailto:jihad.academia@gmail.com" class="text-white/50 hover:text-academic-gold transition-colors">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mostakim-jihad-9b844a202/" class="text-white/50 hover:text-academic-gold transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/mostakimjihad" class="text-white/50 hover:text-academic-gold transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+                <p class="text-white/40 text-sm">&copy; 2024 Mostakim Jihad</p>
             </div>
         </div>
     </footer>
-    <!-- Add your Footer here -->
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
